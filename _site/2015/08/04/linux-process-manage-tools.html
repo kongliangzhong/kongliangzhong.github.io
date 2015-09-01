@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <title>Kongliang Zhong's Blog</title>
+  </head>
+  <body>
+    <h1 id="linux-">Linux 进程管理</h1>
+
+<h2 id="supervisord">supervisord</h2>
+<p>supervisorctl</p>
+
+<p>supervisord will auto load all *.conf file in /etc/supervisor/conf.d/*.conf
+   (configured in /etc/supervisor/supervisord.conf, see the files section)</p>
+
+<p>supervisor conf example:
+      [program:nodehook]
+      command=/usr/bin/node /srv/http.js
+      directory=/srv
+      autostart=true
+      autorestart=true
+      startretries=3
+      stderr_logfile=/var/log/webhook/nodehook.err.log
+      stdout_logfile=/var/log/webhook/nodehook.out.log
+      user=root
+      environment=SECRET_PASSPHRASE=’this is secret’,SECRET_TWO=’another secret’</p>
+
+<p>run: <strong>sudo supervisorctl update</strong> to load new conf file.</p>
+
+  </body>
+</html>

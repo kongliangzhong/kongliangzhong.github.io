@@ -9,68 +9,39 @@
 
 <h3 id="section">安装：</h3>
 <ol>
-  <li>install on Mac with brew: brew install rabbitmq</li>
-  <li>install on Ubuntu:
-apt-cache search rabbitmq
-sudo apt-get install rabbitmq-server</li>
+  <li>install on Mac with brew: brew install rabbitmq  </li>
+  <li>install on Ubuntu:<br />
+    <ol>
+      <li>apt-cache search rabbitmq  </li>
+      <li>sudo apt-get install rabbitmq-server  </li>
+    </ol>
+  </li>
 </ol>
 
 <h3 id="section-1">启动，停止：</h3>
-
 <ol>
-  <li>start rabbitmq server:  rabbitmq-server -detached</li>
-</ol>
-
-<blockquote>
-  <p>use http://host-name:15672 to check rabbitmq server started.
-g
-default user: guest/guest</p>
-</blockquote>
-
-<ol>
-  <li>add rabbitmq user:</li>
-</ol>
-
-<blockquote>
-  <p>list users: rabbitmqctl list_users</p>
-</blockquote>
-
-<blockquote>
-  <p>add user: rabbitmqctl add_user <username> <password></password></username></p>
-</blockquote>
-
-<blockquote>
-  <p>set permissions: set_permissions [-p vhostpath] {user} {conf} {write} {read}</p>
-</blockquote>
-
-<blockquote>
-  <p>e.g.</p>
-</blockquote>
-
-<blockquote>
-  <p>rabbitmqctl add_vhost test_vhost</p>
-</blockquote>
-
-<blockquote>
-  <p>rabbitmqctl add_user test 123456</p>
-</blockquote>
-
-<blockquote>
-  <p>rabbitmqctl set_permissions -p test_vhost test “.<em>” ”.</em>” ”.*”</p>
-</blockquote>
-
-<blockquote>
-  <p>rabbitmqctl set_user_tags test management/administrator  // set role for user.</p>
-</blockquote>
-
-<ol>
+  <li>start rabbitmq server:  rabbitmq-server -detached<br />
+    <ul>
+      <li>use http://host-name:15672 to check rabbitmq server started.  </li>
+      <li>default user: guest/guest  </li>
+    </ul>
+  </li>
+  <li>add rabbitmq user:<br />
+    <ul>
+      <li>list users: rabbitmqctl list_users  </li>
+      <li>add user: rabbitmqctl add_user username password   </li>
+      <li>set permissions: set_permissions [-p vhostpath] {user} {conf} {write} {read}<br />
+  <strong>e.g.</strong>  </li>
+      <li>rabbitmqctl add_vhost test_vhost  </li>
+      <li>rabbitmqctl add_user test 123456  </li>
+      <li>rabbitmqctl set_permissions -p test_vhost test “.*” ”.*” ”.*”   </li>
+      <li>rabbitmqctl set_user_tags test management/administrator  // set role for user.  </li>
+    </ul>
+  </li>
   <li>login to web management ui with user , and create queue.</li>
 </ol>
 
 <h3 id="section-2">常见错误：</h3>
-<ol>
-  <li></li>
-</ol>
 
 
   </body>
