@@ -1,0 +1,26 @@
+---
+layout: "posts"
+---
+
+## Java IO Basics:
+
+### Class.getResourceAsStream 和 ClassLoader.getResourceAsStream 区别:
+
+    Class.getResource 从当前Class的包开始计算相对路径。如果从classpath的根路径开始的话，必须以"/"开头。  
+    Classloader 的路径表示总是从classpath的根路径开始，因此不以"/"开头。  
+    
+    所以，加载foo/bar/xyz.txt文件时，下面两种方式等价：  
+        foo.bar.Baz.class.getResource("xyz.txt");  
+        foo.bar.Baz.class.getClassLoader().getResource("foo/bar/xyz.txt");  
+    下面两种方式也是等价的：  
+        foo.bar.Baz.class.getResource("/data/xyz.txt");  
+        foo.bar.Baz.class.getClassLoader().getResource("data/xyz.txt");  
+
+### read text file line by line:  
+1. use java.nio.file.Files:(path in filesystem)  
+List<String> lines = Files.readAllLines(filePath, Charset.defaultCharset());  
+2. use java.util.Scanner:  
+Scanner in = new Scanner(new FileReader("filename.txt"));  
+while (in.hasNext()) { System.out.println (in.next()); }  
+
+

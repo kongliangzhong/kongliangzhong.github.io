@@ -30,6 +30,7 @@ layout: "posts"
     sudo rabbitmqctl list_exchanges  
 2. list bindings:
     sudo rabbitmqctl list_bindings  
+
 ### 常见错误：
 
 
