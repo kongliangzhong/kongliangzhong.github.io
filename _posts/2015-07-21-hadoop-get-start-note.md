@@ -1,5 +1,5 @@
 ---
-layout: "posts"
+layout: "post"
 ---
 
 ## Hadoop 初步：

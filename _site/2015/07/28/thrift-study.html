@@ -8,186 +8,107 @@
     <h1 id="thrift-">Thrift 探讨</h1>
 
 <h2 id="thrift">Thrift简介</h2>
-<p>Apache Thrift提供了一种可扩展，跨语言的服务部署方式。
+<p>Apache Thrift提供了一种可扩展，跨语言的服务部署方式。<br />
 并且提供了从thrift文件到目标语言的代码生成引擎。 能够很方便的搭建rpc服务端和客户端。</p>
 
 <h2 id="section">使用场景</h2>
 <ul>
-  <li>
-    <p>构建高效，可水平扩展的服务。</p>
-  </li>
-  <li>
-    <p>复杂系统拆分，系统之间的解耦。</p>
-  </li>
-  <li>
-    <p>Thrift VS REST</p>
+  <li>构建高效，可水平扩展的服务。  </li>
+  <li>复杂系统拆分，系统之间的解耦。  </li>
+  <li>Thrift VS REST<br />
+    <ul>
+      <li>Thrift效率更高。（http://stackoverflow.com/questions/16732082/hbase-thrift-vs-rest-performance）  </li>
+      <li>Thrift构建服务更容易，水平扩展也更容易。  </li>
+      <li>rest 服务添加接口更容易。  </li>
+      <li>rest 服务对于访问的认证，授权等机制更完善。  </li>
+      <li>结论：在公司内部服务间的调用使用thrift，提供给外部的服务使用rest.  </li>
+    </ul>
   </li>
 </ul>
 
-<blockquote>
-  <p>Thrift效率更高。（http://stackoverflow.com/questions/16732082/hbase-thrift-vs-rest-performance）</p>
-</blockquote>
-
-<blockquote>
-  <p>Thrift构建服务更容易，水平扩展也更容易。</p>
-</blockquote>
-
-<blockquote>
-  <p>rest 服务添加接口更容易。</p>
-</blockquote>
-
-<blockquote>
-  <p>rest 服务对于访问的认证，授权等机制更完善。</p>
-</blockquote>
-
-<blockquote>
-  <p>结论：在公司内部服务间的调用使用thrift，提供给外部的服务使用rest.</p>
-</blockquote>
-
 <h2 id="thriftubuntu">thrift命令Ubuntu安装</h2>
 <ol>
-  <li>
-    <p>安装依赖包： sudo apt-get install libboost-dev libboost-test-dev libboost-program-options-dev libboost-system-dev libboost-filesystem-dev libevent-dev automake libtool flex bison pkg-config g++ libssl-dev</p>
-  </li>
-  <li>
-    <p>下载thrift，./configure; make install</p>
-  </li>
+  <li>安装依赖包： sudo apt-get install libboost-dev libboost-test-dev libboost-program-options-dev libboost-system-dev libboost-filesystem-dev libevent-dev automake libtool flex bison pkg-config g++ libssl-dev  </li>
+  <li>下载thrift，./configure; make install  </li>
 </ol>
 
 <h2 id="thrift--1">在.thrift 文件中定义类型和服务：</h2>
 
 <h3 id="section-1">类型系统：</h3>
-
 <ul>
-  <li><strong>基本类型</strong></li>
+  <li>
+    <p><strong>基本类型</strong><br />
+<em>bool</em>: A boolean value (true or false)<br />
+<em>byte</em>: An 8-bit signed integer<br />
+<em>i16</em>: A 16-bit signed integer<br />
+<em>i32</em>: A 32-bit signed integer<br />
+<em>i64</em>: A 64-bit signed integer<br />
+<em>double</em>: A 64-bit floating point number<br />
+<em>string</em>: A text string encoded using UTF-8 encoding  </p>
+  </li>
+  <li>
+    <p><strong>特殊类型</strong><br />
+<em>binary</em>: a sequence of unencoded bytes  </p>
+  </li>
+  <li>
+    <p><strong>集合类型</strong><br />
+<em>list</em>: An ordered list of elements<br />
+<em>set</em>: An unordered set of unique elements.<br />
+<em>map</em>: A map of strictly unique keys to values.<br />
+集合支持泛型。list<e>, set<e>, map&lt;K, V&gt;  </e></e></p>
+  </li>
 </ul>
-
-<blockquote>
-  <p><em>bool</em>: A boolean value (true or false)</p>
-</blockquote>
-
-<blockquote>
-  <p><em>byte</em>: An 8-bit signed integer</p>
-</blockquote>
-
-<blockquote>
-  <p><em>i16</em>: A 16-bit signed integer</p>
-</blockquote>
-
-<blockquote>
-  <p><em>i32</em>: A 32-bit signed integer</p>
-</blockquote>
-
-<blockquote>
-  <p><em>i64</em>: A 64-bit signed integer</p>
-</blockquote>
-
-<blockquote>
-  <p><em>double</em>: A 64-bit floating point number</p>
-</blockquote>
-
-<blockquote>
-  <p><em>string</em>: A text string encoded using UTF-8 encoding</p>
-</blockquote>
-
-<ul>
-  <li><strong>特殊类型</strong></li>
-</ul>
-
-<blockquote>
-  <p><em>binary</em>: a sequence of unencoded bytes</p>
-</blockquote>
-
-<ul>
-  <li><strong>集合类型</strong></li>
-</ul>
-
-<blockquote>
-  <p><em>list</em>: An ordered list of elements</p>
-</blockquote>
-
-<blockquote>
-  <p><em>set</em>: An unordered set of unique elements.</p>
-</blockquote>
-
-<blockquote>
-  <p><em>map</em>: A map of strictly unique keys to values.</p>
-</blockquote>
-
-<blockquote>
-  <p>集合支持泛型。list<e>, set<e>, map&lt;K, V&gt;</e></e></p>
-</blockquote>
 
 <h3 id="section-2">定义类型：</h3>
 
 <ul>
   <li>
-    <p>枚举类型:</p>
+    <p>枚举类型:  </p>
 
-    <pre><code>  enum ErrorCode {
-
-      OK = 0,
-
-      THROW_EXCEPTION = 2,
-
-      UNKNOWN_ERROR = 3
-
-  }
+    <pre><code>  enum ErrorCode {  
+      OK = 0,  
+      THROW_EXCEPTION = 2,  
+      UNKNOWN_ERROR = 3  
+  }  
 </code></pre>
   </li>
   <li>
     <p>结构体：</p>
 
-    <pre><code>  struct S {
-
-      1: required i64 id,
-
-      2: required string name,
-
-      3: optional string desc,
-
+    <pre><code>  struct S {  
+      1: required i64 id,  
+      2: required string name,  
+      3: optional string desc,  
   }
 </code></pre>
   </li>
   <li>
     <p>Exception:</p>
 
-    <pre><code>  exception Ex {
-
-      1: required errCode = ErrorCode.OK,
-
-      2: required string msg="",
-
+    <pre><code>  exception Ex {  
+      1: required errCode = ErrorCode.OK,  
+      2: required string msg="",  
   }
 </code></pre>
   </li>
 </ul>
 
 <h3 id="section-3">定义服务</h3>
-<pre><code>service ServiceA {
 
-    void ping(),
-
-    string getStatus()
-
+<pre><code>service ServiceA {  
+    void ping(),  
+    string getStatus()  
 }
 
-service ServiceB extends ServiceA {
-
-    ResponseType doBusiness(1:RequestType req) throws (1: Ex ex)
-
+service ServiceB extends ServiceA {  
+    ResponseType doBusiness(1:RequestType req) throws (1: Ex ex)  
 }
 </code></pre>
 
 <h2 id="thrift-1">Thrift协议</h2>
-
-<blockquote>
-  <p>protocol和transport层采用运行时加载的库，可以不需要重新编译程序就更换这两层的实现。</p>
-</blockquote>
-
-<blockquote>
-  <p>http://thrift-tutorial.readthedocs.org/en/latest/thrift-stack.html</p>
-</blockquote>
+<pre><code>protocol和transport层采用运行时加载的库，可以不需要重新编译程序就更换这两层的实现。
+http://thrift-tutorial.readthedocs.org/en/latest/thrift-stack.html
+</code></pre>
 
 <blockquote>
   <blockquote>
@@ -197,50 +118,33 @@ service ServiceB extends ServiceA {
 
 <h2 id="section-4">跨语言特性</h2>
 
-<blockquote>
-  <p>data format: Bson</p>
-</blockquote>
-
-<blockquote>
-  <p>自动生成服务端和客户端代码。</p>
-</blockquote>
+<ul>
+  <li>data format: Bson  </li>
+  <li>自动生成服务端和客户端代码。  </li>
+</ul>
 
 <h2 id="thrift-2">搭建Thrift服务端和客户端：</h2>
 
 <h3 id="java">Java为例：</h3>
 
 <ol>
-  <li>
-    <p>define .thrift file.</p>
-  </li>
-  <li>
-    <p>generate code.</p>
-  </li>
-  <li>
-    <p>service implementation.</p>
-  </li>
-  <li>
-    <p>start service.</p>
-  </li>
-  <li>
-    <p>invoke service.</p>
-  </li>
+  <li>define .thrift file.  </li>
+  <li>generate code.  </li>
+  <li>service implementation.  </li>
+  <li>start service.  </li>
+  <li>invoke service.<br />
+ https://github.com/kongliangzhong/all-samples/tree/master/thrift-sample-java</li>
 </ol>
 
-<blockquote>
-  <p>https://github.com/kongliangzhong/all-samples/tree/master/thrift-sample-java</p>
-</blockquote>
-
 <h2 id="section-5">客户端多线程调用</h2>
-<p>thrift生成的Client不是线程安全的，因此要在客户端实现线程安全，需要对每个线程使用单独的Client。</p>
-
-<p>参见：http://192.168.88.111:9000/upsmart/upsmart-thrift-client</p>
+<p>thrift生成的Client不是线程安全的，因此要在客户端实现线程安全，需要对每个线程使用单独的Client。<br />
+参见：http://192.168.88.111:9000/upsmart/upsmart-thrift-client</p>
 
 <h2 id="protobuf-avro">类似技术：Protobuf, Avro</h2>
-<blockquote>
-  <p>Protobuf: https://developers.google.com/protocol-buffers/
-Avro: https://avro.apache.org/</p>
-</blockquote>
+<ul>
+  <li>Protobuf: https://developers.google.com/protocol-buffers/  </li>
+  <li>Avro: https://avro.apache.org/</li>
+</ul>
 
   </body>
 </html>

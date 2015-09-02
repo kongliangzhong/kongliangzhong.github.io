@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <title>Kongliang Zhong's Blog</title>
+  </head>
+  <body>
+    <h2 id="java-io-basics">Java IO Basics:</h2>
+
+<h3 id="classgetresourceasstream--classloadergetresourceasstream-">1. Class.getResourceAsStream 和 ClassLoader.getResourceAsStream 区别:</h3>
+<ul>
+  <li>Class.getResource 从当前Class的包开始计算相对路径。如果从classpath的根路径开始的话，必须以”/”开头。  </li>
+  <li>Classloader 的路径表示总是从classpath的根路径开始，因此不以”/”开头。<br />
+所以，加载foo/bar/xyz.txt文件时，下面两种方式等价：<br />
+    <ul>
+      <li>foo.bar.Baz.class.getResource(“xyz.txt”);  </li>
+      <li>foo.bar.Baz.class.getClassLoader().getResource(“foo/bar/xyz.txt”);  </li>
+    </ul>
+  </li>
+  <li>下面两种方式也是等价的：<br />
+    <ul>
+      <li>foo.bar.Baz.class.getResource(“/data/xyz.txt”);  </li>
+      <li>foo.bar.Baz.class.getClassLoader().getResource(“data/xyz.txt”);  </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="read-file-from-file-system-by-line-">2. read file from file system by line :</h3>
+<ul>
+  <li>
+    <p>use java.nio.file.Files:(path in filesystem)  </p>
+
+    <pre><code>  List&lt;String&gt; lines = Files.readAllLines(filePath, Charset.defaultCharset());  
+</code></pre>
+  </li>
+  <li>
+    <p>use java.util.Scanner:  </p>
+
+    <pre><code>  Scanner in = new Scanner(new FileReader("filename.txt"));  
+  while (in.hasNext()) { System.out.println (in.next()); }  
+</code></pre>
+  </li>
+</ul>
+
+<h3 id="read-file-from-classpath-by-line-">3. read file from classpath by line :</h3>
+<ul>
+  <li>
+    <p>use java.io.BufferedReader:  </p>
+
+    <pre><code>  Set&lt;String&gt; queueSet = new HashSet&lt;&gt;();  
+  try (InputStream ins = this.getClass().getResourceAsStream("/" + queuesFileInClassPath);
+      BufferedReader br = new BufferedReader(new InputStreamReader(ins))) {  
+  for (String line = br.readLine(); line != null; line = br.readLine()) {  
+      line = line.trim();  
+      if (line.length() &gt; 0) {  
+      queueSet.add(line);  
+      }  
+  }  
+  } catch (Exception ex) {  
+      ex.printStackTrace();  
+  }  
+</code></pre>
+  </li>
+</ul>
+
+
+  </body>
+</html>

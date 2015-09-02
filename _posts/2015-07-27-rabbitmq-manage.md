@@ -1,6 +1,11 @@
 ---
-layout: "posts"
+layout: post
+title: "sample"
+description: ""
+category: 
+tags: []
 ---
+{% include JB/setup %}
 
 ## RabbitMQ 使用指南：
 

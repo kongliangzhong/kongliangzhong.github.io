@@ -1,6 +1,11 @@
 ---
-layout: "posts"
+layout: post
+title: "sample"
+description: ""
+category: 
+tags: []
 ---
+{% include JB/setup %}
 
 ## Curator操作zookeeper
 
