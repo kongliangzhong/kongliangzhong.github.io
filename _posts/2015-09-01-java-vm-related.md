@@ -1,10 +1,8 @@
 ---
 layout: post
-title: "sample"
-description: ""
-category: 
-tags: []
+title: "Java VM Related"
+tags: java VM
+categories: java
 ---
-{% include JB/setup %}
 
-## Java VM Related
+## 

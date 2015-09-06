@@ -1,13 +1,9 @@
 ---
 layout: post
-title: "sample"
-description: ""
-category: 
-tags: []
+title: "Linux 环境设置和问题"
+tags: linux env
+categories: linux
 ---
-{% include JB/setup %}
 
-## Linux 环境设置和问题
-
-### SSH related setup:  
+## SSH related setup:  
 1. generate ssh key pair: ssh-keygen -t rsa -b 4096 -C "you-email@emailhost.com"  

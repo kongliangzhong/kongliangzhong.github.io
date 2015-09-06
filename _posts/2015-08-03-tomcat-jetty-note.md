@@ -1,13 +1,9 @@
 ---
 layout: post
-title: "sample"
-description: ""
-category: 
-tags: []
+title: "Tomcat, Jetty研究及比较"
+tags: tomcat jetty java
+categories: middleware
 ---
-{% include JB/setup %}
-
-# Tomcat, Jetty研究及比较
 
 ## Tomcat配置和使用
 

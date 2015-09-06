@@ -1,5 +1,8 @@
 ---
-layout: "posts"
+layout: post
+title: 十年总结
+tags: 感悟 总结
+categories: 感悟
 ---
 
 ## 程序员心得（一）

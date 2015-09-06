@@ -1,13 +1,11 @@
 ---
 layout: post
-title: "sample"
-description: ""
-category: 
-tags: []
+title: "Thrift 使用"
+tags: thrift rpc
+categories: rpc
 ---
-{% include JB/setup %}
 
-# Thrift 探讨
+# 
 
 ## Thrift简介  
 Apache Thrift提供了一种可扩展，跨语言的服务部署方式。  

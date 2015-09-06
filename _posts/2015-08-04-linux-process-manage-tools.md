@@ -1,13 +1,11 @@
 ---
 layout: post
-title: "sample"
-description: ""
-category: 
-tags: []
+title: "Linux 进程管理"
+tags: linux process-supervision
+categories: linux
 ---
-{% include JB/setup %}
 
-# Linux 进程管理
+## daemontools 
 
 ## supervisord  
    - supervisorctl  
