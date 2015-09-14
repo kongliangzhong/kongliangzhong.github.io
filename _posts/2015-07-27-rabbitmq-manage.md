@@ -17,8 +17,10 @@ categories: middleware
   * default user: guest/guest  
 2. add rabbitmq user:  
   - list users: rabbitmqctl list_users  
-  - add user: rabbitmqctl add_user username password   
+  - add vhost: rabbitmqctl add_vhost {vhost-name}  
+  - add user: rabbitmqctl add_user {username} {password}   
   - set permissions: set_permissions [-p vhostpath] {user} {conf} {write} {read}  
+  - set user tags: rabbitmqctl set_user_tags {user} {management/administrator}
   __e.g.__  
   - rabbitmqctl add_vhost test_vhost  
   - rabbitmqctl add_user test 123456  
@@ -33,7 +35,6 @@ categories: middleware
     sudo rabbitmqctl list_bindings  
 
 ## 常见错误：
-
 
 
 
