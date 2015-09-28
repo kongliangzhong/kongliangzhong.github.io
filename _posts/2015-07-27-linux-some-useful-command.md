@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "一些有用的Linux命令"
+title: "Linux shell命令总结"
 tags: linux shell
 categories: linux
 ---
@@ -25,6 +25,8 @@ categories: linux
 4. zip文件：
    * 列出zip文件内容：unzip -l
    * 解压：unzip {file}
+5. shell中判断文件是否存在：[ -f filename ]
+    >[ -f /etc/hosts ] && echo "Found" || echo "Not found"
 
 ### 权限管理：
 1. 进入root用户的shell ：**sudo sh**
