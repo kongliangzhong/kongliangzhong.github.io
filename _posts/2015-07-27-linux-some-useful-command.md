@@ -16,5 +16,26 @@ categories: linux
 
     >find . -cmin -1 -delete
 
+3. 文件统计：
+
+    ~~~bash
+    1. fgrep -o {string} {file} | wc -l  ##统计string在文件中出现次数
+    2. du -hs . ## 统计当前文件夹大小
+    ~~~
+4. zip文件：
+   * 列出zip文件内容：unzip -l
+   * 解压：unzip {file}
+
+### 权限管理：
+1. 进入root用户的shell ：**sudo sh**
+2. 在脚本中以root用户执行单条命令：
+
+    >sudo sh -c "echo 2 >> /data/zookeeper/myid"
+
+### 进程管理：
+1. 用nohup, &来启动服务：
+
+    >nohup myprogram </dev/null >myprogram.log 2>&1 &
+
 ### SSH相关：
 

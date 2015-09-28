@@ -24,7 +24,7 @@ categories: middleware
   __e.g.__  
   - rabbitmqctl add_vhost test_vhost  
   - rabbitmqctl add_user test 123456  
-  - rabbitmqctl set_permissions -p test_vhost test ".\*" ".\*" ".\*"   
+  - rabbitmqctl set_permissions -p test_vhost test ".*" ".*" ".*"   
   - rabbitmqctl set_user_tags test management/administrator  // set role for user.  
 3. login to web management ui with user , and create queue.
 
