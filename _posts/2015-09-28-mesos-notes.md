@@ -17,3 +17,7 @@ nohup mesos-slave --master=127.0.0.1:5050 &
 检查服务启动情况：`http://127.0.0.1:5050`   
 
 ### 运行任务：
+
+
+### sample code:
+`https://github.com/kongliangzhong/all-samples/tree/master/mesos`

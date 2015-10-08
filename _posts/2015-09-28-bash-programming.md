@@ -12,9 +12,9 @@ categories: linux
 file="/etc/hosts"
 if [ -f "$file" ]
 then
-echo "$file found."
+    echo "$file found."
 else
-echo "$file not found."
+    echo "$file not found."
 fi
 ~~~
 

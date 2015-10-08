@@ -26,7 +26,11 @@ categories: linux
    * 列出zip文件内容：unzip -l
    * 解压：unzip {file}
 5. shell中判断文件是否存在：[ -f filename ]
-    >[ -f /etc/hosts ] && echo "Found" || echo "Not found"
+    >## -f: FILE exists and is a regular file.
+    >[ -f /etc/hosts ] && echo "Found" || echo "Not found" 
+6. curl:
+* download tar:
+>curl -O http://downloads.mesosphere.com/marathon/v0.10.0/marathon-0.10.0.tgz 
 
 ### 权限管理：
 1. 进入root用户的shell ：**sudo sh**
