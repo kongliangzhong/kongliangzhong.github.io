@@ -28,19 +28,20 @@ echo $PWD > "$1.enc.pwd"
 openssl aes-256-cbc -in $1 -out "$1.enc" -a -k $PWD
 ~~~
 ### 2. openssl AES解密：
-`openssl aes-256-cbc -d -in $1 -out $1.dec.csv -a`
-    ~~~bash
-    #!/bin/sh
-    if [ "$#" -ne 1 ]; then
-      echo "Usage: $0 encodeFile" >&2
-      exit 1
-    fi
-    if ! [ -e "$1" ]; then
-      echo "$1 not found" >&2
-      exit 1
-    fi
+`openssl aes-256-cbc -d -in $1 -out $1.dec.csv -a`  
+~~~bash
+#!/bin/sh
+if [ "$#" -ne 1 ]; then
+echo "Usage: $0 encodeFile" >&2
+exit 1
+fi
+if ! [ -e "$1" ]; then
+echo "$1 not found" >&2
+exit 1
+fi
 
-    PWD=$(cat "$1.pwd")
-    openssl aes-256-cbc -d -in $1 -out $1.dec.csv -a -k $PWD
-    ~~~
+PWD=$(cat "$1.pwd")
+openssl aes-256-cbc -d -in $1 -out $1.dec.csv -a -k $PWD
+~~~
+
 ###
