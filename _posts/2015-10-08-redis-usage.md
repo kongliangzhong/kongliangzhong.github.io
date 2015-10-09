@@ -18,11 +18,11 @@ cd src
 
 ## 命令集：
 1. 查看帮助:
->help {command}
->help keys
+>help {command}  
+>help keys  
 
 2. 列出所有key：
->keys {pattern}
+>keys {pattern}  
 >keys *
 
 3. 删除key：
