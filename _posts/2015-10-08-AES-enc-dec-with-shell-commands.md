@@ -28,6 +28,7 @@ categories: shell
 
     openssl aes-256-cbc -in $1 -out "$1.enc" -a -k $PWD
     ~~~
+
 ### 2. openssl AES解密：
 
     ~~~bash
@@ -46,3 +47,5 @@ categories: shell
 
     openssl aes-256-cbc -d -in $1 -out $1.dec.csv -a -k $PWD
     ~~~
+
+###
