@@ -8,7 +8,7 @@ categories: shell
 ## openssl
 
 ### 1. openssl AES 加密：
-> openssl aes-256-cbc -in {in-file} -out {out-file} -a
+`openssl aes-256-cbc -in {in-file} -out {out-file} -a`
 -a表示对结果进行BASE64转换.
 完整脚本：
 
@@ -28,12 +28,10 @@ categories: shell
 
     openssl aes-256-cbc -in $1 -out "$1.enc" -a -k $PWD
     ~~~
-
 ### 2. openssl AES解密：
-
+`openssl aes-256-cbc -d -in $1 -out $1.dec.csv -a`
     ~~~bash
     #!/bin/sh
-
     if [ "$#" -ne 1 ]; then
       echo "Usage: $0 encodeFile" >&2
       exit 1
@@ -44,8 +42,6 @@ categories: shell
     fi
 
     PWD=$(cat "$1.pwd")
-
     openssl aes-256-cbc -d -in $1 -out $1.dec.csv -a -k $PWD
     ~~~
-
 ###
