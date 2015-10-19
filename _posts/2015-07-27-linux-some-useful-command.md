@@ -25,15 +25,15 @@ categories: linux
 4. zip文件：
    * 列出zip文件内容：unzip -l
    * 解压：unzip {file}
-5. shell中判断文件是否存在：[ -f filename ]
-    >## -f: FILE exists and is a regular file.
-    >[ -f /etc/hosts ] && echo "Found" || echo "Not found" 
+5. shell中判断文件是否存在：[ -f filename ]  
+   -f: FILE exists and is a regular file.  
+   >[ -f /etc/hosts ] && echo "Found" || echo "Not found" 
 6. curl:
 * download tar:  
 >curl -O http://downloads.mesosphere.com/marathon/v0.10.0/marathon-0.10.0.tgz 
 7. 文件合并：  
->合并CSV文件，第19个字段表示时间戳。源文件都已按照时间戳排好序，要求合并文件，结果文件排序，去重。  
->`sort -t ',' -m -u -k19 -o res f1 f2 f3`  
+>合并CSV文件，第19个字段表示时间戳。源文件都已按照时间戳排好序，要求合并文件，结果文件排序，去重:   
+>>`sort -t ',' -m -u -k19 -o res f1 f2 f3`  
 >`-t ','`: 以`,`做为列分隔符。  
 >`-m`: merge  
 >`-u`: 去重  
