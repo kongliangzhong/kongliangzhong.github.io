@@ -7,21 +7,20 @@ categories: database
 
 ## 安装  
 1. install postgresql on ubuntu:  
->sudo apt-get install postgresql  
+    >sudo apt-get install postgresql  
 2. install on mac:  
->brew install postgresql
-
+    >brew install postgresql
 ## 启动停止：  
 1. start:  
-~~~bash
-rm -rf /usr/local/var/postgres  // rm if exist.
-mkdir /usr/local/var/postgres
-chown klzhong /usr/local/var/postgres
-initdb /usr/local/var/postgres -E utf8
-pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start  
-~~~
+        ~~~bash
+        rm -rf /usr/local/var/postgres  // rm if exist.
+        mkdir /usr/local/var/postgres
+        chown klzhong /usr/local/var/postgres
+        initdb /usr/local/var/postgres -E utf8
+        pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start  
+        ~~~
 2. stop:  
->pg_ctl -D /usr/local/var/postgres stop
+> pg_ctl -D /usr/local/var/postgres stop
 
 ## 使用：  
 1. connect to postgres in terminal:  
@@ -29,20 +28,20 @@ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 
 2. Enable client authentication:  
 按照以下几个步骤操作：  
-* 修改/usr/local/var/postgres/pg_hba.conf, 添加如下一行允许特定IP访问：  
->host  all  all   192.168.88.164/32   trust  
+    * 修改/usr/local/var/postgres/pg_hba.conf, 添加如下一行允许特定IP访问：  
+    >host  all  all   192.168.88.164/32   trust  
 或者添加如下一行允许192.168.88.*的用户访问：  
->host  all  all   192.168.88.0/24   trust  
-* 修改/usr/local/var/postgres/postgresql.conf, 设置`listen_address = '*'`  
-* 重启服务：  
+    >host  all  all   192.168.88.0/24   trust  
+    * 修改/usr/local/var/postgres/postgresql.conf, 设置`listen_address = '*'`  
+    * 重启服务：  
 >pg_ctl restart -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log
 >ps -ef|grep postgres  
 
 3. 连接服务： psql -h host-name-or-ip -U user dbname  
 
 4. 为用户添加／修改密码：  
-* 登陆：psql -h host-name-or-ip -U user dbname  
-* 修改密码：
+    * 登陆：psql -h host-name-or-ip -U user dbname  
+    * 修改密码：
 >alter user userName with password "123456"
 
 5. postgres add user on db:  
