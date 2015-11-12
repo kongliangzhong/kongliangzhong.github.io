@@ -7,18 +7,21 @@ categories: database
 
 ## 安装  
 1. install postgresql on ubuntu:  
-    >sudo apt-get install postgresql  
+>sudo apt-get install postgresql  
+
 2. install on mac:  
-    >brew install postgresql
+>brew install postgresql  
+
 ## 启动停止：  
 1. start:  
-        ~~~bash
-        rm -rf /usr/local/var/postgres  // rm if exist.
-        mkdir /usr/local/var/postgres
-        chown klzhong /usr/local/var/postgres
-        initdb /usr/local/var/postgres -E utf8
-        pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start  
-        ~~~
+~~~bash
+rm -rf /usr/local/var/postgres  // rm if exist.
+mkdir /usr/local/var/postgres
+chown klzhong /usr/local/var/postgres
+initdb /usr/local/var/postgres -E utf8
+pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start  
+~~~
+
 2. stop:  
 > pg_ctl -D /usr/local/var/postgres stop
 
@@ -62,15 +65,15 @@ categories: database
    \d+ tablename  // desc table.  
 
 2. 创建数据库(paperfare for example):  
-    step1. psql -h localhost postgres klzhong  
-    step2. CREATE DATABASE paperfare OWNER klzhong;  
+    * psql -h localhost postgres klzhong  
+    * CREATE DATABASE paperfare OWNER klzhong;  
         ERROR:  permission denied to create database  
-    step3. grant user create database: relogin as admin user:  
+    * grant user create database: relogin as admin user:  
            psql -h localhost postgres postgres;  
            ALTER USER klzhong CREATEDB;  
            SET ROLE klzhong  //switch to user klzhong  
-    step4. exec step2.  
-    step5. \l+  //check for database  
+    * exec step2.  
+    * \l+  //check for database  
 
 3. DDL语句:  
 
