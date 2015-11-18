@@ -35,3 +35,34 @@ if c := a; a > b {
 }
 ~~~  
 
+3. 接口继承：  
+Go语言中的接口继承是一种“我爱你与你无关”式的继承方式。
+只要接口中的方法被另一种类型实现了，那就成了这个接口的子类。
+例如：Go源码中crypto/cipher包中定义的Block接口：
+~~~go
+type Block interface {
+BlockSize() int
+Encrypt(dst, src []byte)
+Decrypt(dst, src []byte)
+}
+~~~  
+然后在crypto/aes中实现了此接口：  
+~~~go
+type aesCipher struct {
+  ...
+}
+
+func (c *aesCipher) BlockSize() int { return BlockSize }
+func (c *aesCipher) Encrypt(dst, src []byte) {...}
+func (c *aesCipher) Decrypt(dst, src []byte) {...}
+~~~  
+然后在函数NewCipher中，要求返回的是cipher.Block, 实际返回的是aesCipher:  
+~~~go
+func NewCipher(key []byte) (cipher.Block, error) {
+...
+c := &aesCipher{make([]uint32, n), make([]uint32, n)}
+...
+return c, nil
+}
+~~~  
+

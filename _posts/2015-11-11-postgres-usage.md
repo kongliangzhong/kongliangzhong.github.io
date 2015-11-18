@@ -12,7 +12,7 @@ categories: database
 2. install on mac:  
 >brew install postgresql  
 
-## 启动停止：  
+## 启动停止  
 1. start:  
 ~~~bash
 rm -rf /usr/local/var/postgres  // rm if exist.
@@ -25,7 +25,7 @@ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 2. stop:  
 > pg_ctl -D /usr/local/var/postgres stop
 
-## 使用：  
+## 登陆及管理  
 1. connect to postgres in terminal:  
 > psql postgres  
 
@@ -56,6 +56,12 @@ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
    \q
 ~~~
 
+6. 连接URL：
+>postgres://pqgotest:password@localhost/pqgotest?sslmode=verify-full
+
+e.g. Open in golang:
+>db, err := sql.Open("postgres", "postgres://pqgotest:password@localhost/pqgotest?sslmode=verify-full")
+
 ## postgresql SQL语句:
 1. 管理:  
    \list  //list databases  
@@ -76,7 +82,18 @@ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
     * \l+  //check for database  
 
 3. DDL语句:  
+    * create table:  
+    >create table users (  
+    >    id integer,
+    >    name varchar(32),
+    >    age integer,
+    >    primary key(id)
+    >);
 
 4. DML语句:  
-
+    * insert data:  
+    >insert into users(id, name, age) values(1, 'aaa', 18);
+    * select:
+    > select id, name from users where age = 18;
+    
 ## 常见错误处理：
