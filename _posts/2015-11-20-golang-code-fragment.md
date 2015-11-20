@@ -7,6 +7,7 @@ categories: golang
 
 ## IO  
 1. ioutil进行文件读写:  
+
 ~~~go
 // read file:
 bs, err := ioutil.ReadFile(filename)
