@@ -15,3 +15,20 @@ categories: golang
     // write to file:
     ioutil.WriteFile(fname, []byte("file content"), 0600)
     ~~~
+
+2. 逐行读入文件：  
+    ~~~go
+    f, err := os.Open(filename)
+    if err != nil {
+        log.Println(err)
+    }
+    defer f.Close()
+    scanner := bufio.NewScanner(f)
+    for scanner.Scan() {
+        line := scanner.Text()
+    }
+    if err = scanner.Err(); err != nil {
+        log.Println(err)
+    }
+    ~~~
+
