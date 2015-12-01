@@ -53,17 +53,17 @@ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 
 4. 为用户添加／修改密码：  
     * 登陆：psql -h host-name-or-ip -U user dbname  
-    * 修改密码：
-    > alter user userName with password "123456"
+    * 修改密码：  
+        > alter user userName with password "123456"
 
 5. 连接URL：
-    * Golang:
-    > postgres://{user}:{password}@{host}/{db}[?sslmode=verify-full]  
-    > e.g. Open in golang:  
-    > db, err := sql.Open("postgres", "postgres://testuser:password@localhost/pqgotest?sslmode=verify-full")  
-    * Java:
-    > jdbc:postgresql://{host}/{db}?user={user}&password={pwd}  
-    > driver class: org.postgresql.Driver
+    * Golang:  
+        > postgres://{user}:{password}@{host}/{db}[?sslmode=verify-full]  
+        > e.g. Open in golang:  
+        > db, err := sql.Open("postgres", "postgres://testuser:password@localhost/pqgotest?sslmode=verify-full")  
+    * Java:  
+        > jdbc:postgresql://{host}/{db}?user={user}&password={pwd}  
+        > driver class: org.postgresql.Driver
 
 ## postgresql SQL语句:
 1. 管理:  
@@ -86,16 +86,15 @@ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 
 3. DDL语句:  
     * create table:  
-    > create table users (  
-    >    id integer,  
-    >    name varchar(32),  
-    >    age integer,  
-    >    primary key(id)  
-    > );  
-
+        > create table users (  
+        >    id integer,  
+        >    name varchar(32),  
+        >    age integer,  
+        >    primary key(id)  
+        > );  
     * 修改列类型：  
-    > 将类型从int扩展成int8:  
-    > alter table {tablename} alter column {columnname} type int8;  
+        > 将类型从int扩展成int8:  
+        > alter table {tablename} alter column {columnname} type int8;  
 4. DML语句:  
     * insert data:  
         > insert into users(id, name, age) values(1, 'aaa', 18);  
