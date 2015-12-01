@@ -5,6 +5,10 @@ tags: golang
 categories: golang
 ---
 
+## Basic:
+1. strings:  
+
+
 ## IO  
 1. ioutil进行文件读写:  
     ~~~go
