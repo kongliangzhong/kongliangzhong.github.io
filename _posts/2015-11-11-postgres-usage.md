@@ -14,6 +14,7 @@ categories: database
 
 ## 启动停止  
 1. start:  
+
 ~~~bash
 rm -rf /usr/local/var/postgres  // rm if exist.
 mkdir /usr/local/var/postgres
@@ -26,6 +27,7 @@ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 
 ## 登陆及管理  
 1. 连接服务:
+
 ~~~bash
 psql -h {host-name-or-ip} -U {user} {dbname}  
 psql {dbname} // use default host(localhost) and user(current user in terminal).
@@ -43,6 +45,7 @@ psql {dbname} // use default host(localhost) and user(current user in terminal).
         ps -ef|grep postgres  
         ~~~
 3. 添加用户:  
+
 ~~~bash
    psql
    \c {db}  // connect to {db}  
@@ -68,6 +71,7 @@ psql {dbname} // use default host(localhost) and user(current user in terminal).
 
 ## postgresql SQL语句:
 1. 管理:  
+
 ~~~bash
 \list  //list databases  
 \dt    //list tables in current db.  
@@ -105,6 +109,7 @@ psql {dbname} // use default host(localhost) and user(current user in terminal).
 
 ## 数据导出导入：  
 1. 从CSV文件导入到数据库表：  
+
 ~~~bash
 #!/bin/sh
 psql -U klzhong postgres <<EOF
