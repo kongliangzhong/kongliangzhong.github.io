@@ -105,6 +105,12 @@ psql {dbname} // use default host(localhost) and user(current user in terminal).
 
 ## 数据导出导入：  
 1. 从CSV文件导入到数据库表：  
-
+    ~~~bash
+    #!/bin/sh
+    psql -U klzhong postgres <<EOF
+    copy ups_trans(card, cardtail4, amountcent, amountex, transts, bankname) from '/Users/klzhong/temp/trans_sample.csv' delimiter ',' csv;
+    \q
+    EOF
+    ~~~
 
 ## 常见错误处理：
