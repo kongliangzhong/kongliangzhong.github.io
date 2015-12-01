@@ -15,7 +15,6 @@ byte[] decoded = DatatypeConverter.parseBase64Binary(encoded);
 System.out.println(encoded);
 System.out.println(new String(decoded, "UTF-8"));
 ~~~
-
 2. java8提供了java.util.Base64：  
 
 ~~~java
