@@ -21,26 +21,27 @@ chown klzhong /usr/local/var/postgres
 initdb /usr/local/var/postgres -E utf8
 pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start  
 ~~~
-
 2. stop:  
-> pg_ctl -D /usr/local/var/postgres stop
+>pg_ctl -D /usr/local/var/postgres stop
 
 ## 登陆及管理  
 1. 连接服务:
-> psql -h {host-name-or-ip} -U {user} {dbname}  
-> psql {dbname} // use default host(localhost) and user(current user in terminal).
-
+~~~bash
+psql -h {host-name-or-ip} -U {user} {dbname}  
+psql {dbname} // use default host(localhost) and user(current user in terminal).
+~~~
 2. 开启登陆密码验证:  
 按照以下几个步骤操作：  
     * 修改/usr/local/var/postgres/pg_hba.conf, 添加如下一行允许特定IP访问：  
-        > host  all  all   192.168.88.164/32   trust  
+        >host  all  all   192.168.88.164/32   trust  
 或者添加如下一行允许192.168.88.*的用户访问：  
-        > host  all  all   192.168.88.0/24   trust  
+        >host  all  all   192.168.88.0/24   trust  
     * 修改/usr/local/var/postgres/postgresql.conf, 设置`listen_address = '*'`  
     * 重启服务：  
-        > pg_ctl restart -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log
-        > ps -ef|grep postgres  
-
+        ~~~bash
+        pg_ctl restart -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log
+        ps -ef|grep postgres  
+        ~~~
 3. 添加用户:  
 ~~~bash
    psql
@@ -54,25 +55,26 @@ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 4. 为用户添加／修改密码：  
     * 登陆：psql -h host-name-or-ip -U user dbname  
     * 修改密码：  
-        > alter user userName with password "123456"
+        >alter user userName with password "123456"
 
 5. 连接URL：
     * Golang:  
-        > postgres://{user}:{password}@{host}/{db}[?sslmode=verify-full]  
-        > e.g. Open in golang:  
-        > db, err := sql.Open("postgres", "postgres://testuser:password@localhost/pqgotest?sslmode=verify-full")  
+            >postgres://{user}:{password}@{host}/{db}[?sslmode=verify-full]  
+            >e.g. Open in golang:  
+            >db, err := sql.Open("postgres", "postgres://testuser:password@localhost/pqgotest?sslmode=verify-full")  
     * Java:  
-        > jdbc:postgresql://{host}/{db}?user={user}&password={pwd}  
-        > driver class: org.postgresql.Driver
+            >jdbc:postgresql://{host}/{db}?user={user}&password={pwd}  
+            >driver class: org.postgresql.Driver
 
 ## postgresql SQL语句:
 1. 管理:  
-   \list  //list databases  
-   \dt    //list tables in current db.  
-   \c db-name  // connect to a certain db.  
-   \?   //help  
-   \d+ tablename  // desc table.  
-
+    ~~~bash
+    \list  //list databases  
+    \dt    //list tables in current db.  
+    \c db-name  // connect to a certain db.  
+    \?   //help  
+    \d+ tablename  // desc table.  
+    ~~~
 2. 创建数据库(paperfare for example):  
     * psql -h localhost postgres klzhong  
     * CREATE DATABASE paperfare OWNER klzhong;  
