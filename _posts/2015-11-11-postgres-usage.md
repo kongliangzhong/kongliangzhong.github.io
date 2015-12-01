@@ -40,6 +40,7 @@ psql {dbname} // use default host(localhost) and user(current user in terminal).
     >host  all  all   192.168.88.0/24   trust  
     * 修改/usr/local/var/postgres/postgresql.conf, 设置`listen_address = '*'`  
     * 重启服务：  
+
         ~~~bash
         pg_ctl restart -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log
         ps -ef|grep postgres  
@@ -54,23 +55,22 @@ psql {dbname} // use default host(localhost) and user(current user in terminal).
    grant all privileges on database {db} to {username};  
    \q
 ~~~
-
 4. 为用户添加／修改密码：  
     * 登陆：psql -h host-name-or-ip -U user dbname  
     * 修改密码：  
 
-    >alter user userName with password "123456"
-
+        >alter user userName with password "123456"
 5. 连接URL：
     * Golang:  
 
-    >postgres://{user}:{password}@{host}/{db}[?sslmode=verify-full]  
-    >e.g. Open in golang:  
-    >db, err := sql.Open("postgres", "postgres://testuser:password@localhost/pqgotest?sslmode=verify-full")  
+        >postgres://{user}:{password}@{host}/{db}[?sslmode=verify-full]  
+        >e.g. Open in golang:  
+        >db, err := sql.Open("postgres", "postgres://testuser:password@localhost/pqgotest?sslmode=verify-full")  
+
     * Java:  
 
-    >jdbc:postgresql://{host}/{db}?user={user}&password={pwd}  
-    >driver class: org.postgresql.Driver
+        >jdbc:postgresql://{host}/{db}?user={user}&password={pwd}  
+        >driver class: org.postgresql.Driver
 
 ## postgresql SQL语句:
 1. 管理:  
@@ -92,28 +92,28 @@ psql {dbname} // use default host(localhost) and user(current user in terminal).
            SET ROLE klzhong  //switch to user klzhong  
     * exec step2.  
     * \l+  //check for database  
-
 3. DDL语句:  
     * create table:  
 
-    > create table users (  
-    >    id integer,  
-    >    name varchar(32),  
-    >    age integer,  
-    >    primary key(id)  
-    > );  
+        > create table users (  
+        >    id integer,  
+        >    name varchar(32),  
+        >    age integer,  
+        >    primary key(id)  
+        > );  
 
     * 修改列类型：  
 
-    > 将类型从int扩展成int8:  
-    > alter table {tablename} alter column {columnname} type int8;  
+        > 将类型从int扩展成int8:  
+        > alter table {tablename} alter column {columnname} type int8;  
 4. DML语句:  
     * insert data:  
 
-    > insert into users(id, name, age) values(1, 'aaa', 18);  
+        > insert into users(id, name, age) values(1, 'aaa', 18);  
+
     * select:  
 
-    > select id, name from users where age = 18;  
+        > select id, name from users where age = 18;  
 
 ## 数据导出导入：  
 1. 从CSV文件导入到数据库表：  
