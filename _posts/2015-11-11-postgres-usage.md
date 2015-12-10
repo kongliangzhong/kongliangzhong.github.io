@@ -106,6 +106,10 @@ psql {dbname} // use default host(localhost) and user(current user in terminal).
 
         > 将类型从int扩展成int8:  
         > alter table {tablename} alter column {columnname} type int8;  
+
+    * create index:  
+
+        > create index on {tablename}({colname} [, {colname}])  
 4. DML语句:  
     * insert data:  
 

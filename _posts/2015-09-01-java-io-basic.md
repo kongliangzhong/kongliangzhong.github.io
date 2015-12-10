@@ -46,3 +46,16 @@ categories: java
         ex.printStackTrace();  
     }  
     ~~~
+
+### 4. write string list to file:  
+
+    ~~~java
+    try (FileWriter fw = new FileWriter(fileName, true)) { // true: append mode
+        for (String s : strList) {
+            fw.write(s);
+            fw.write("\n");
+        }
+    } catch (Exception ex) {
+        log.error(ex.getMessage(), ex);
+    }
+    ~~~
