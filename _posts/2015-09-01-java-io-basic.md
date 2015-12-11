@@ -48,7 +48,7 @@ categories: java
     ~~~
 
 ### 4. write string list to file:  
-
+* append to file:  
     ~~~java
     try (FileWriter fw = new FileWriter(fileName, true)) { // true: append mode
         for (String s : strList) {
