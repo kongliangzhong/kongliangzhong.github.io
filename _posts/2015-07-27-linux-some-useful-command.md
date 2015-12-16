@@ -52,3 +52,9 @@ categories: linux
 
 ### SSH相关：
 
+### Shell执行：  
+1. 用另一个用户来执行命令：  
+
+    su - <username> -c "<commands>"  
+
+如果以root用户执行，则只需要`su -c "<command>"`
