@@ -7,10 +7,13 @@ categories: database
 
 ## 安装  
 1. install postgresql on ubuntu:  
->sudo apt-get install postgresql  
-
+    * sudo apt-get install postgresql  
+    * install from deb file(download deb file first):  
+        > sudo dpkg -i bigpostgres_9.4.5-1.amd64.openscg.deb  
+        > sudo /etc/init.d/bigpostgres-9.4-openscg start
+        > sudo service bigpostgres-9.4-openscg restart
 2. install on mac:  
->brew install postgresql  
+    >brew install postgresql  
 
 ## 启动停止  
 1. start:  
@@ -24,6 +27,10 @@ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 ~~~
 2. stop:  
 >pg_ctl -D /usr/local/var/postgres stop
+
+3. on ubuntu:  
+    * service postgresql start/stop
+    * rm service: rm /etc/init.d/postgresql
 
 ## 登陆及管理  
 1. 连接服务:
@@ -129,5 +136,10 @@ copy ups_trans(card, cardtail4, amountcent, amountex, transts, bankname) from '/
 \q
 EOF
 ~~~
+
+## pg_shard:  
+1. 下载安装：[pg_shard](https://github.com/citusdata/pg_shard)  
+在Mac上报找不到stdio.h的错误，则需要安装command line tools，运行`xcode-select --install` 即可安装。
+2. 
 
 ## 常见错误处理：
