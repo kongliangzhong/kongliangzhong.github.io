@@ -137,6 +137,25 @@ copy ups_trans(card, cardtail4, amountcent, amountex, transts, bankname) from '/
 EOF
 ~~~
 
+## 其他任务：
+1. 清除数据库中的所有表，保留表结构：  
+
+~~~sql
+CREATE OR REPLACE FUNCTION truncate_tables(username IN VARCHAR) RETURNS void AS $$
+DECLARE
+statements CURSOR FOR
+SELECT tablename FROM pg_tables
+WHERE tableowner = username AND schemaname = 'public';
+BEGIN
+FOR stmt IN statements LOOP
+EXECUTE 'TRUNCATE TABLE ' || quote_ident(stmt.tablename) || ' CASCADE;';
+END LOOP;
+END;
+$$ LANGUAGE plpgsql;
+~~~
+使用：  
+> SELECT truncate_tables('postgres');  
+
 ## pg_shard:  
 1. 下载安装：[pg_shard](https://github.com/citusdata/pg_shard)  
 在Mac上报找不到stdio.h的错误，则需要安装command line tools，运行`xcode-select --install` 即可安装。
