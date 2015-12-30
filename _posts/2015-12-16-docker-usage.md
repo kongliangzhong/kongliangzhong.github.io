@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Docker使用指南"
-tags: docker 
-categories: container
+tags: docker distributed-system
+categories: distributed-system
 ---
 
 ## 安装：  

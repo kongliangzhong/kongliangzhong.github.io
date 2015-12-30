@@ -50,6 +50,10 @@ categories: linux
 
     >nohup myprogram </dev/null >myprogram.log 2>&1 &
 
+2. kill掉一组进程：
+
+    >kill `ps -ef|grep {search-string}|grep -v grep|awk '{print $2}'`
+
 ### SSH相关：
 
 ### Shell执行：  

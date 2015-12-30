@@ -140,6 +140,13 @@ EOF
 ## pg_shard:  
 1. 下载安装：[pg_shard](https://github.com/citusdata/pg_shard)  
 在Mac上报找不到stdio.h的错误，则需要安装command line tools，运行`xcode-select --install` 即可安装。
-2. 
+2. 评价：截止目前2015-12-29，个人感觉 pg_shard还处于一个原型的状态，不太可用。主要缺陷有：
+    * 不支持事务
+    * 大量数据导入很慢
+    * 对于数据量很大的表，查询极其的缓慢。
+
+## Postgres-XL:  
+
+
 
 ## 常见错误处理：

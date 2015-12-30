@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "Mesos笔记"
-tags: mesos linux
-categories: mesos
+tags: mesos distributed-system
+categories: distributed-system
 ---
 
-### 启动：
+## 启动：
 
 ~~~bash
 #!/bin/sh
@@ -16,8 +16,13 @@ nohup mesos-slave --master=127.0.0.1:5050 &
 ~~~
 检查服务启动情况：`http://127.0.0.1:5050`   
 
-### 运行任务：
+## 运行任务：
 
 
-### sample code:
+## sample code:
 `https://github.com/kongliangzhong/all-samples/tree/master/mesos`
+
+
+## Marathon:
+
+
