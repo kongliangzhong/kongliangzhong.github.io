@@ -32,3 +32,9 @@ mongod上执行此操作即可。
 4. 配置出错处理：   
 在开始建立ReplSet的时候，由于没有数据，所以可以很简单的kill掉mongod，  
 然后`rm -rf {dbpath}`来重新开始。
+
+## mongodb设置：
+1. 设置log级别：  
+> db.setProfilingLevel(level, slowms)
+> level: 0 for no profiling, 1 for only slow operations, or 2 for all operations.
+> slowms: default: 100ms. if operation time > slowms, will log into log file.

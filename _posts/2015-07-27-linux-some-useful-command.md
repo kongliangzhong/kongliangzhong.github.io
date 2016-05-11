@@ -38,6 +38,8 @@ categories: linux
 >`-m`: merge  
 >`-u`: 去重  
 >`-o res`: 制定结果文件  
+8. 转码：iconv
+> iconv -c -f GB18030 -t UTF-8 sourceFile >> destFile
 
 ### 权限管理：
 1. 进入root用户的shell ：**sudo sh**
@@ -52,7 +54,7 @@ categories: linux
 
 2. kill掉一组进程：
 
-    >kill `ps -ef|grep {search-string}|grep -v grep|awk '{print $2}'`
+    >kill \`ps -ef|grep {search-string}|grep -v grep|awk '{print $2}'\`
 
 ### SSH相关：
 

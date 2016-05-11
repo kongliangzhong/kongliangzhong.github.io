@@ -38,6 +38,9 @@ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 ~~~bash
 psql -h {host-name-or-ip} -U {user} {dbname}  
 psql {dbname} // use default host(localhost) and user(current user in terminal).
+
+psql -l // list databases;
+psql -d {dbname} // connect to database {dbname}.
 ~~~
 2. 开启登陆密码验证:  
 按照以下几个步骤操作：  
@@ -85,6 +88,7 @@ psql {dbname} // use default host(localhost) and user(current user in terminal).
 ~~~bash
 \list  //list databases  
 \dt    //list tables in current db.  
+\du    // list roles.  
 \c db-name  // connect to a certain db.  
 \?   //help  
 \d+ tablename  // desc table.  
