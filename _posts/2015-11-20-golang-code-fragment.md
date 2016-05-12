@@ -36,3 +36,9 @@ categories: golang
     }
     ~~~
 
+## net/http  
+1. serving static content(assets for example):  
+> http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
+
+2. use mux to serve static content:  
+> router.PathPrefix("/assets").Handler(http.FileServer(http.Dir("./assets/")))
