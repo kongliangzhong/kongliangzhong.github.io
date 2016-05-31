@@ -7,6 +7,7 @@ categories: java
 
 ## 1. maven  
 * maven常用命令：  
+
 ~~~bash  
 \#\#创建Maven的普通java项目：  
 mvn archetype:create
