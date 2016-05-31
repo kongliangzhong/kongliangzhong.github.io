@@ -40,6 +40,7 @@ categories: linux
 >`-o res`: 制定结果文件  
 8. 转码：iconv
 > iconv -c -f GB18030 -t UTF-8 sourceFile >> destFile
+9. wget:  wget -qO- 127.0.0.1  
 
 ### 权限管理：
 1. 进入root用户的shell ：**sudo sh**
