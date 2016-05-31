@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Java VM Related"
+title: "Java项目和包管理"
 tags: java maven
 categories: java
 ---
